@@ -240,8 +240,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('assets/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('assets/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
-
 @stack('scripts')
+@include('admin.posts.create')
 
 </body>
 </html>

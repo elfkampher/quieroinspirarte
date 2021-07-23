@@ -1,6 +1,6 @@
 .container{
-	padding-right: 15px;
-  	padding-left: 15px;
+	/*padding-right: 15px;
+  	padding-left: 15px;*/
   	margin-right: auto;
   	margin-left: auto;
 }
@@ -142,3 +142,18 @@
 	padding-bottom: 5px;
 }
 
+.overlay{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	color: white;
+	font-size: 30px;
+	background-color: rgba(0,0,0, .7);
+}
+
+.gallery-photos{
+	overflow: hidden;
+}

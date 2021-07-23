@@ -9,6 +9,7 @@ use App\Models\Tag;
 use App\Models\Category;
 use Carbon\Carbon;
 
+
 class PostsController extends Controller
 {
     public function index(){
@@ -16,15 +17,37 @@ class PostsController extends Controller
         return view('admin.posts.index')->with(compact('posts'));
     }
 
-    public function create()
+    /*public function create()
     {
         $categories = Category::all();
         $tags = Tag::all();
 
         return view('admin.posts.create')->with(compact('categories'))->with(compact('tags'));
-    }
+    }*/
 
     public function store(Request $request)
+    {
+        $this->validate($request, ['title' => 'required']);
+
+        $post = Post::create([
+            'title' => $request->get('title'),
+            'url' => str_slug($request->title)
+        
+        ]);
+
+        return redirect()->route('admin.posts.edit',compact('post'));
+    }
+
+    public function edit(Post $post)
+    {
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('admin.posts.edit')->with(compact('categories'))->with(compact('tags'))->with(compact('post'));
+        
+    }
+
+    public function update(Post $post, Request $request)
     {
         $messages = [
             'body.required' => 'El campo de contenido es obligatorio',
@@ -40,9 +63,9 @@ class PostsController extends Controller
         ];
 
         $this->validate($request, $rules, $messages);
-
-        $post = new Post();
+        
         $post->title = $request->title;
+        $post->url = str_slug($request->title);
         $post->body = $request->body;
         $post->excerpt = $request->excerpt;
         $post->published_at = $request->has('published_at') ? Carbon::parse($request->published_at) : null;
@@ -50,8 +73,8 @@ class PostsController extends Controller
 
         $post->save();
 
-        $post->tags()->attach($request->tags);
+        $post->tags()->sync($request->tags);
 
-        return back()->with('flash', 'tu publicación ha sido creada');
+        return redirect()->route('admin.posts.edit', $post)->with('flash', 'tu publicación ha sido guardada');
     }
 }

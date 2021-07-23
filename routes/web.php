@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('blog/{post}', 'PostsController@show')->name('posts.show');
 
 
 Route::get('posts', function(){
@@ -32,7 +33,9 @@ function(){
     Route::get('posts', 'PostsController@index')->name('admin.posts.index');    
     Route::get('/posts/create', 'PostsController@create')->name('admin.posts.create');
     Route::post('/posts/store', 'PostsController@store')->name('admin.posts.store');    
-
+    Route::get('posts/{post}', 'PostsController@edit')->name('admin.posts.edit');
+    Route::put('posts/{post}', 'PostsController@update')->name('admin.posts.update');
+    Route::post('posts/{post}/photos', 'PhotosController@store')->name('admin.posts.photos.store');
 });
 
 
