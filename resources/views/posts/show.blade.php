@@ -6,7 +6,9 @@
 @section('content')
 	<article class="post container">
     @if($post->photos->count() === 1)
-        <figure><img src="{{ $post->photos->first()->url }}" alt="" class="img-responsive"></figure>
+      <figure><img src="{{ $post->photos->first()->url }}" alt="" class="img-responsive"></figure>
+    @elseif($post->photos->count() > 1)
+      @include('posts.carousel')
     @endif
     <div class="content-post">
       <header class="container-flex space-between">
@@ -43,8 +45,15 @@
   </article>
 @endsection
 
+@push('styles')
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/twitter-bootstrap.css') }}">
+@endpush
+
 @push('scripts')
 
-<script id="dsq-count-scr" src="//zendero.disqus.com/count.js" async></script>	
+<script id="dsq-count-scr" src="//zendero.disqus.com/count.js" async></script>
+<script
+  src="{{ asset('/assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/twitter-bootstrap.js') }}"></script>	
 
 @endpush
