@@ -32,58 +32,65 @@
 @php
 	$errores = "";
 @endphp		
-<div class="card card-primary">
-	<div class="card-header">
-		@if($errors->any())
-		  <script>
-		    swal(		    	
-		      'Error',		      		      
-		      'Debes llenar todos los campos obligatorios',    
-		      'error',{
-		      	buttons:{
-		    		cancel: "Ok"
-		    	}
-		      }
-		    )
-		  </script>
-		  @endif
-	  	<h3 class="card-title">Crear</h3>	  
+<div class="row">
+	<div class="col-md-8">
+		<div class="card card-primary">
+		  <div class="card-header">
+		    <h3 class="card-title">Edición de Post</h3>
+		  </div>
+		  <!-- /.card-header -->
+		  <!-- form start -->
+		  <form method="POST" action="{{ route('admin.posts.update', $post) }}">		
+		  	@csrf
+		  	{{ method_field('PUT') }}
+		    <div class="card-body">
+		    
+			  	<div class="form-group" >
+			    	<label for="title">Titulo de la publicación</label>
+			    	<input type="text" id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" value="{{ old('title', $post->title) }}">
+			  	</div>				  	
+			  	
+			  	<label>Contenido publicación</label>
+			  	<div class="form-group">
+			    	<textarea class="input-block-level {{ $errors->has('body') ? 'is-invalid' : '' }}" id="body" name="body" rows="8">{{ old('body', $post->body) }}</textarea>
+			    	{!! $errors->first('body', '<span class="error invalid-feedback">:message</span>') !!}
+			  	</div>	
+
+					<div class="row">
+			  		@foreach($post->photos as $photo)			  			
+				  		<div class="col-md-2">
+				  			<a photo_id="{{ $photo->id }}" class="btn btn-danger btn-xs deletephoto" style="position: absolute">
+				  				<i class="fas fa-times"></i>
+				  			</a>
+				  			<img class="img-thumbnail" src="{{ url($photo->url) }}">
+				  		</div>				  		
+				  	@endforeach
+			  	</div>
+
+		    </div>
+		    <!-- /.card-body -->		    
+		  
+		</div>
 	</div>
 
-	<form method="POST" action="{{ route('admin.posts.update', $post) }}">		
-		@csrf
-		{{ method_field('PUT') }}
-		<div class="card-body">
-			<div class="row">	
-				<div class="col-md-8">
-				  	<div class="form-group" >
-				    	<label for="title">Titulo de la publicación</label>
-				    	<input type="text" id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" value="{{ old('title', $post->title) }}">
-				  	</div>				  	
-				  	
-				  	<label>Contenido publicación</label>
-				  	<div class="form-group">
-				    	<textarea class="input-block-level {{ $errors->has('body') ? 'is-invalid' : '' }}" id="body" name="body" rows="8">{{ old('body', $post->body) }}</textarea>
-				    	{!! $errors->first('body', '<span class="error invalid-feedback">:message</span>') !!}
-				  	</div>			  	
-				</div>
-			
+	<div class="col-md-4">
+		<div class="card card-primary">
+		  <div class="card-header">
+		    <h3 class="card-title"></h3>
+		  </div>
+		  <!-- /.card-header -->
+		  <div class="card-body">
 
-			
-				<div class="col-md-4">
-
-					<div class="form-group">
+		  	<div class="form-group">
 				    	<label for="excerpt" >Extracto de la publicación</label>
 				    	<textarea id="excerpt" name="excerpt" class="form-control {{ $errors->has('excerpt') ? 'is-invalid' : '' }}" rows="2">{{ old('excerpt', $post->excerpt) }}</textarea>
 				    	{!! $errors->first('excerpt', '<span class="error invalid-feedback">:message</span>') !!}
 				  </div>		  	
 
-			  	<div class="form-group">
-	                	
+			  	<div class="form-group">	                	
 	          	<label>Date:</label>
 	            
-	        	<input type="text" class="form-control" name="published_at" id="published_at" value="{{ old('published_at', $post->published_at ? $post->published_at->format('m/d/Y'): null ) }}" />
-	            
+	        	<input type="text" class="form-control" name="published_at" id="published_at" value="{{ old('published_at', $post->published_at ? $post->published_at->format('m/d/Y'): null ) }}" />	            
 	        </div>
 
 	        <div class="form-group">
@@ -118,16 +125,12 @@
 	        	<button type="submit" class="btn btn-primary btn-block">Guardar Publicación</button>
 	        </div>
 
-	      </div>
-
-			</div>
+	        </form>
+		  </div>
+		  <!-- /.card-body -->
 		</div>
-				<!-- /.card-body -->
-
-		</div>
-	</form>
+	</div>
 </div>
-
 
 @stop
 
@@ -180,6 +183,28 @@ myDropzone.on('error', function(file, res) {
 }); 
 
 Dropzone.autoDiscover = false;
+
+$(document).on('click', '.deletephoto', function(){
+	var photo_id = $(this).attr('photo_id');
+
+	$.ajax({
+		url: "{{ url('admin/photos/deletephoto') }}",
+		type: "post",		
+		data:{			
+			_token: '{{ csrf_token() }}',
+			id: photo_id
+		},
+		success: function(){
+			swal(
+				"Listo!", 
+				"La foto ha sido borrada", 
+				"warning"
+			).then(function(){
+				location.reload();
+			});			
+		}
+	});
+});
 
 </script>
 @endpush

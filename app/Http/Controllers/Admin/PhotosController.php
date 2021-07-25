@@ -26,4 +26,16 @@ class PhotosController extends Controller
         ]);    
 
     }
+
+    public function deletephoto(Request $request)
+    {
+        if($request->ajax()){ 
+            $photo = Photo::find($request->id);            
+            $photoPath = str_replace('storage', 'public', $photo->url);
+            Storage::delete($photoPath);
+            $photo->delete();
+        }
+
+        return back()->with('flash', 'Foto eliminada');
+    }
 }
