@@ -39,4 +39,21 @@ class Post extends Model
         ->where('published_at','<=', Carbon::now())
         ->orderBy('published_at');
     }
+    public function setTitleAttribute($title)
+    {
+        $this->attributes['title'] = $title;
+        $this->attributes['url'] = str_slug($title);
+    }
+
+    public function setPublishedAtAttribute($published_at)
+    {
+        $this->attributes['published_at'] = $published_at ? Carbon::parse($published_at) : null;
+    }
+
+    public function setCategoryIdAttribute($category)
+    {
+        $this->attributes['category_id'] = Category::find($category)
+                                            ? $category
+                                            : Category::create(['name' => $catecory])->id;
+    }
 }

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@home');
 Route::get('blog/{post}', 'PostsController@show')->name('posts.show');
+Route::get('categorias/{category}', 'CategoriesController@show')->name('categories.show');
+Route::get('tags/{tag}', 'TagsController@show')->name('tags.show');
 
 
 Route::get('posts', function(){
@@ -37,6 +39,7 @@ function(){
     Route::put('posts/{post}', 'PostsController@update')->name('admin.posts.update');
     Route::post('posts/{post}/photos', 'PhotosController@store')->name('admin.posts.photos.store');
     Route::post('/photos/deletephoto', 'PhotosController@deletephoto');
+    Route::delete('/posts/{id}', 'PostsController@delete')->name('admin.posts.delete');
 });
 
 

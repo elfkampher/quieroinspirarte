@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Category;
 use Carbon\Carbon;
+use App\Http\Requests\StorePostRequest;
 
 
 class PostsController extends Controller
@@ -29,11 +30,7 @@ class PostsController extends Controller
     {
         $this->validate($request, ['title' => 'required']);
 
-        $post = Post::create([
-            'title' => $request->get('title'),
-            'url' => str_slug($request->title)
-        
-        ]);
+        $post = Post::create($request->only('title'));
 
         return redirect()->route('admin.posts.edit',compact('post'));
     }
@@ -47,34 +44,45 @@ class PostsController extends Controller
         
     }
 
-    public function update(Post $post, Request $request)
+    public function update(Post $post, StorePostRequest $request)
     {
-        $messages = [
+        //return $request->all();
+        /*$messages = [
             'body.required' => 'El campo de contenido es obligatorio',
             'excerpt.required' => 'El campo de extracto es obligatorio'
         ];
         
         $rules = [
-            'title' => 'required',
-            'body' => 'required',
-            'category' => 'required',
-            'excerpt' => 'required',
-            'tags' => 'required'
+            
         ];
-
         $this->validate($request, $rules, $messages);
-        
-        $post->title = $request->title;
-        $post->url = str_slug($request->title);
+        */
+
+        $post->title = $request->title;        
         $post->body = $request->body;
+        $post->iframe = $request->iframe;
         $post->excerpt = $request->excerpt;
-        $post->published_at = $request->has('published_at') ? Carbon::parse($request->published_at) : null;
+        $post->published_at = $request->published_at;
         $post->category_id = $request->category;
+
 
         $post->save();
 
-        $post->tags()->sync($request->tags);
+        $tags = collect($request->get('tags'))->map(function($tag){
+            return Tag::find($tag) ? $tag : Tag::create(['name' => $tag])->id;
+        });
+
+        
+        $post->tags()->sync($tags);
 
         return redirect()->route('admin.posts.edit', $post)->with('flash', 'tu publicación ha sido guardada');
+    }
+
+    public function delete($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return back();
     }
 }

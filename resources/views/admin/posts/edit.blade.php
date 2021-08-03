@@ -52,8 +52,13 @@
 			  	
 			  	<label>Contenido publicación</label>
 			  	<div class="form-group">
-			    	<textarea class="input-block-level {{ $errors->has('body') ? 'is-invalid' : '' }}" id="body" name="body" rows="8">{{ old('body', $post->body) }}</textarea>
+			    	<textarea class="input-block-level {{ $errors->has('body') ? 'is-invalid' : '' }}" id="body" name="body" rows="10">{{ old('body', $post->body) }}</textarea>
 			    	{!! $errors->first('body', '<span class="error invalid-feedback">:message</span>') !!}
+			  	</div>
+
+			  	<div class="form-group {{ $errors->has('iframe') ? 'is-invalid' : '' }}">
+			  		<label>Contenido embebido (iframe)</label>
+			  		<textarea rows="2" name="iframe" class="form-control" placeholder="Ingresa contenido embebido (iframe) de audio o video">{{ old('iframe', $post->iframe) }}</textarea>
 			  	</div>	
 
 					<div class="row">
@@ -95,7 +100,7 @@
 
 	        <div class="form-group">
 	        	<label>Categorias</label>
-	        	<select class="form-control {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category" id="category">
+	        	<select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category" id="category">
 	        		<option value="">Selecciona una categoria</option>
 	        		@foreach($categories as $category)
 	        		<option value="{{ $category->id }}"
@@ -150,16 +155,15 @@ $(function() {
   $('input[name="published_at"]').daterangepicker({
     singleDatePicker: true,
     showDropdowns: true,
-    minYear: 1901,
-    maxYear: parseInt(moment().format('YYYY'),10)
-  }, function(start, end, label) {
-    var years = moment().diff(start, 'years');
-    alert("You are " + years + " years old!");
+    autoUpdateInput: true
+    
   });
 
   $('#body').summernote()
 
-  $('.select2').select2()
+  $('.select2').select2({
+  	tags: true
+  })
 });
 
 var myDropzone = new Dropzone('.dropzone',{

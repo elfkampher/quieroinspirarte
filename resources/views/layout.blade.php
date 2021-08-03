@@ -30,12 +30,9 @@
 			</nav>
 		</div>
 	</header>
-
 	<!-- Contenido -->
 	@yield('content')
-
 	<!-- Contenido -->
-
 	<section class="footer">
 		<footer>
 			<div class="container">
@@ -61,7 +58,6 @@
 			</div>
 		</footer>
 	</section>
-	@stack('scripts')
-	
+	@stack('scripts')	
 </body>
 </html>

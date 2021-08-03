@@ -51,9 +51,15 @@
       		<td>{{ $post->title }}</td>
       		<td>{{ $post->excerpt }}</td>
       		<td>
-            <a href="{{ route('posts.show', $post) }}" class="btn btn-xs btn-default" target="_blank"><i class="fas fa-eye"></i></a>
-      			<a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-xs btn-info"><i class="fas fa-edit"></i></a>
-      			<a href="" class="btn btn-xs btn-danger"><i class="fas fa-times"></i></a>
+            <form method="post" action="{{ route('admin.posts.delete', $post->id) }}">
+              @csrf
+              {{ method_field('delete')}}
+              <a href="{{ route('posts.show', $post) }}" class="btn btn-xs btn-default" target="_blank"><i class="fas fa-eye"></i></a>
+        			<a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-xs btn-info"><i class="fas fa-edit"></i></a>
+        			<button class="btn btn-xs btn-danger" >
+                <i class="fas fa-times"></i>
+              </button>
+            </form>
       		</td>
       	</tr>
       	@endforeach
