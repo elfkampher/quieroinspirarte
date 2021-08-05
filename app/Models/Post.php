@@ -9,9 +9,23 @@ use Carbon\Carbon;
 class Post extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-
+    protected $fillable = [
+        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id' 
+    ];
+    
     protected $dates = ['published_at'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($post)
+        {
+            $post->tags()->detach();
+
+            $post->photos->each->delete();        
+        });
+    }
 
     public function getRouteKeyName()
     {
@@ -55,5 +69,15 @@ class Post extends Model
         $this->attributes['category_id'] = Category::find($category)
                                             ? $category
                                             : Category::create(['name' => $catecory])->id;
+    }
+
+    public function syncTags($tags)
+    {
+        $tagIds = collect($tags)->map(function($tag){
+            return Tag::find($tag) ? $tag : Tag::create(['name' => $tag])->id;
+        });
+
+        
+        return $this->tags()->sync($tagIds);
     }
 }

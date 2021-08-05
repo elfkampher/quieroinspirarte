@@ -141,9 +141,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
+      <li class="dropdown user user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">          
+            <img src="{{ asset('assets/adminlte/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">          
+        </a>
+        <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{ asset('assets/adminlte/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+
+                <p>
+                  {{ Auth::user()->nombre }}
+                  <small>Registro {{ Auth::user()->created_at }}</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Publicaciones</a>
+                  </div>                  
+                </div>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">                
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+              </li>
+            </ul>
       </li>
     </ul>
   </nav>
@@ -191,7 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       @if(session()->has('flash'))
         <script>
           swal(
-            'Excelente!',
+            'Operación Exitosa!',
             '{{ session('flash') }}',
             'success'
           )

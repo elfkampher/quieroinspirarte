@@ -40,9 +40,18 @@ function(){
     Route::post('posts/{post}/photos', 'PhotosController@store')->name('admin.posts.photos.store');
     Route::post('/photos/deletephoto', 'PhotosController@deletephoto');
     Route::delete('/posts/{id}', 'PostsController@delete')->name('admin.posts.delete');
+
 });
 
 
-Route::get('register', function(){
+
+/*Route::get('register', function(){
     return redirect('/login');
 });
+
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+*/
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -51,12 +51,12 @@
       		<td>{{ $post->title }}</td>
       		<td>{{ $post->excerpt }}</td>
       		<td>
-            <form method="post" action="{{ route('admin.posts.delete', $post->id) }}">
+            <form class="formDelete" method="post" action="{{ route('admin.posts.delete', $post->id) }}" id="eliminarPublicacion">
               @csrf
               {{ method_field('delete')}}
               <a href="{{ route('posts.show', $post) }}" class="btn btn-xs btn-default" target="_blank"><i class="fas fa-eye"></i></a>
         			<a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-xs btn-info"><i class="fas fa-edit"></i></a>
-        			<button class="btn btn-xs btn-danger" >
+        			<button class="btn btn-xs btn-danger eliminarPost">
                 <i class="fas fa-times"></i>
               </button>
             </form>
@@ -90,6 +90,23 @@
       "autoWidth": false,
       "responsive": true,
     });
+  });
+  $(document).on('click', ".eliminarPost", function(){
+    event.preventDefault(); // prevent form submit
+var form = event.target.form; // storing the form
+        swal({
+          title: "Estas seguro?",
+          text: "Una vez borrada la publicación no podra recuperarse!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete)=>{
+          if (willDelete) {
+            $(".formDelete").submit();          // submitting the form when user press yes            
+          } else {
+            swal("Cancelado", "La publicación sigue vigente :)", "error");
+          }
+        });
   });
 </script>
 

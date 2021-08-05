@@ -46,43 +46,20 @@ class PostsController extends Controller
 
     public function update(Post $post, StorePostRequest $request)
     {
-        //return $request->all();
-        /*$messages = [
-            'body.required' => 'El campo de contenido es obligatorio',
-            'excerpt.required' => 'El campo de extracto es obligatorio'
-        ];
         
-        $rules = [
-            
-        ];
-        $this->validate($request, $rules, $messages);
-        */
+        $post->update($request->except('tags', 'files'));
 
-        $post->title = $request->title;        
-        $post->body = $request->body;
-        $post->iframe = $request->iframe;
-        $post->excerpt = $request->excerpt;
-        $post->published_at = $request->published_at;
-        $post->category_id = $request->category;
+        $post->syncTags($request->get('tags'));
 
-
-        $post->save();
-
-        $tags = collect($request->get('tags'))->map(function($tag){
-            return Tag::find($tag) ? $tag : Tag::create(['name' => $tag])->id;
-        });
-
-        
-        $post->tags()->sync($tags);
-
-        return redirect()->route('admin.posts.edit', $post)->with('flash', 'tu publicación ha sido guardada');
+        return redirect()->route('admin.posts.edit', $post)->with('flash', 'La publicación ha sido guardada');
     }
 
     public function delete($id)
     {
-        $post = Post::find($id);
+        $post = Post::find($id);        
+
         $post->delete();
 
-        return back();
+        return redirect()->route('admin.posts.index')->with('flash', 'La publicación ha sido eliminada');
     }
 }
