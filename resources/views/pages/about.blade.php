@@ -8,7 +8,7 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img src="../assets/img/faces/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img src="../assets/img/faces/juan_carlos.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
                 <h3 class="title">Stocks Illustrated</h3>
@@ -56,12 +56,12 @@
               <div class="col-md-3 ml-auto">
               	<h2>Estrategia Financiera</h2>
 		          <p>Para apoyarte a mejorar tu economia, vamos a orientarte en como atacar tus problemas financieros desde varios frentes, empezando por vigilar los gastos personales, creando una estrategia de ahorro e inversión y muy importante haciendo una planeación para el retiro. </p>		          
-                <img src="../assets/img/examples/studio-1.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-2.jpg" class="rounded">
+                <img src="../assets/img/examples/1.png" class="rounded">
+                <img src="../assets/img/examples/2.png" class="rounded">
               </div>
               <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/studio-5.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-4.jpg" class="rounded">
+                <img src="../assets/img/examples/3.png" class="rounded">
+                <img src="../assets/img/examples/4.png" class="rounded">
               </div>
             </div>
           </div>
@@ -70,13 +70,13 @@
               <div class="col-md-3 ml-auto">
               	<h2>Gestión Patrimonial</h2>
   	          	<p>ahorrar y planear el futuro es muy importante, pues no siempre seremos jovenes y no siempre estaremos llenos de energia ni tendremos la misma capacidad para trabajar, por ello aprenderemos a gestionar nuestro patrimonio y desarrollar estrategias de inversión para asegurar una excelente calidad de vida</p>
-                <img src="../assets/img/examples/olu-eletu.jpg" class="rounded">
-                <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded">
-                <img src="../assets/img/examples/cynthia-del-rio.jpg" class="rounded">
+                <img src="../assets/img/examples/5.png" class="rounded">
+                <img src="../assets/img/examples/6.png" class="rounded">
+                <img src="../assets/img/examples/2.jpg" class="rounded">
               </div>
               <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded">
-                <img src="../assets/img/examples/clem-onojegaw.jpg" class="rounded">
+                <img src="../assets/img/examples/7.png" class="rounded">
+                <img src="../assets/img/examples/8.png" class="rounded">
               </div>
             </div>
           </div>
@@ -85,13 +85,13 @@
               <div class="col-md-3 ml-auto">
               	 <h2>Inversión Value</h2>
           		<p>La inversión en bolsa tiene muchos taboos, algunas de las cosas que se dicen de la inversión en bolsa son ciertas, muchas otras no, aprenderas a diferenciar entre mitos y verdades, acerca de la inversión en la bolsa de valores usando la estrategia que han usado grandes inversores como: Warren Buffet, Peter Lynch, Charlie Munguer, entre otros.</p>
-                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-3.jpg" class="rounded">
+                <img src="../assets/img/examples/9.png" class="rounded">
+                <img src="../assets/img/examples/10.png" class="rounded">
               </div>
               <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded">
-                <img src="../assets/img/examples/olu-eletu.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-1.jpg" class="rounded">
+                <img src="../assets/img/examples/11.png" class="rounded">
+                <img src="../assets/img/examples/12.png" class="rounded">
+                <img src="../assets/img/examples/13.png" class="rounded">
               </div>
             </div>
           </div>
