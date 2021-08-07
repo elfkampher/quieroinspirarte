@@ -1,5 +1,5 @@
 @extends('layoutct')
-
+@include('partials.header')
 @section('content')
 <div class="main main-raised">
     <div class="profile-content">
@@ -12,10 +12,10 @@
               </div>
               <div class="name">
                 <h3 class="title">Stocks Illustrated</h3>
-                <h6>Designer</h6>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                <h6>Carlos Gutierrez | Fundador</h6>
+                <a href="#" class="btn btn-just-icon btn-link btn-bank"><i class="fa fa-bank"></i></a>
+                <a href="#" class="btn btn-just-icon btn-link btn-area-chart"><i class="fa fa-area-chart"></i></a>
+                <a href="#" class="btn btn-just-icon btn-link btn-money"><i class="fa fa-money"></i></a>
               </div>
             </div>
           </div>

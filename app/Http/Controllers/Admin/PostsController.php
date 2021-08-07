@@ -14,23 +14,23 @@ use App\Http\Requests\StorePostRequest;
 class PostsController extends Controller
 {
     public function index(){
-        $posts = Post::all();
+        
+        $posts = auth()->user()->posts;
+
         return view('admin.posts.index')->with(compact('posts'));
     }
-
-    /*public function create()
-    {
-        $categories = Category::all();
-        $tags = Tag::all();
-
-        return view('admin.posts.create')->with(compact('categories'))->with(compact('tags'));
-    }*/
+    
 
     public function store(Request $request)
     {
         $this->validate($request, ['title' => 'required']);
 
-        $post = Post::create($request->only('title'));
+        //$post = Post::create($request->only('title'));
+        $post = Post::create([
+            'title' => $request->get('title'),
+            'user_id' => auth()->id()
+        ]);
+
         $post->url = str_slug($request->title)."-{$post->id}";
         $post->save();        
 
@@ -39,6 +39,8 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
+        $this->authorize('view', $post);
+
         $categories = Category::all();
         $tags = Tag::all();
 

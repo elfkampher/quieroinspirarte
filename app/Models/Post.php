@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id' 
+        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id', 'user_id' 
     ];
     
     protected $dates = ['published_at'];
@@ -45,6 +45,10 @@ class Post extends Model
     public function photos()
     {
         return $this->hasMany(Photo::class);
+    }
+
+    public function owner(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function scopePublished($query)
@@ -114,5 +118,17 @@ class Post extends Model
 
         
         return $this->tags()->sync($tagIds);
+    }
+
+    public function isPublished()
+    {
+        /*$dt = Carbon::now()->toDateString();
+        $postdate = Carbon::parse($this->published_at)->format('Y-m-d');
+        
+        if($dt > $postdate){
+            return true;
+        }*/
+        return ! is_null($this->published_at) && $this->published_at < today();
+
     }
 }
