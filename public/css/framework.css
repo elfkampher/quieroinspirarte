@@ -102,7 +102,7 @@
 	color: #333333;
 }
 .c-green{
-	color: #877371;
+	color: #601abc;
 }
 .c-white{
 	color: #fff;
@@ -134,11 +134,11 @@
 	border-bottom: 0 !important;
 }
 .pagination-active{
-	background: #1abc9c !important;
+	background: #601abc !important;
 	color: #fff !important;
 }
 .hover{
-	border-bottom: 2px solid #1abc9c;
+	border-bottom: 2px solid #601abc;
 	padding-bottom: 5px;
 }
 

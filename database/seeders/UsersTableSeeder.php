@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
 
         $admin = new User;
         $admin->name = 'Juan Carlos';
-        $admin->email = 'jgutierrez@stocksillustrated.com.mx';
+        $admin->email = 'jgutierrez@quieroinspirarte.com';
         $admin->password = bcrypt('AlphaJuliet2018?*');
         $admin->save();
 
@@ -31,11 +31,11 @@ class UsersTableSeeder extends Seeder
 
         $writer = new User;
         $writer->name = 'Alejandra Solvg';
-        $writer->email = 'avasquez@stocksillustrated.com.mx';
+        $writer->email = 'avasquez@quieroinspirarte.com';
         $writer->password = bcrypt('AlphaJuliet2018?*');
         $writer->save();
 
-        $writer->assignRole($writerRole);
+        $writer->assignRole($adminRole);
 
     }
 }

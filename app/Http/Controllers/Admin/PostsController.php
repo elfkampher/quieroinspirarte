@@ -60,10 +60,11 @@ class PostsController extends Controller
     }
 
     public function delete($id)
-    {
-        $this->authorize('delete', $post);
+    {        
 
         $post = Post::find($id);        
+
+        $this->authorize('delete', $post);
 
         $post->delete();
 

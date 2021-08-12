@@ -144,10 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">          
             <img src="{{ asset('assets/adminlte/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">          
-<<<<<<< HEAD
-=======
             <span class="hiden-xs">{{ auth()->user()->name }}</span>
->>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
         </a>
         <ul class="dropdown-menu">
               <!-- User image -->
@@ -155,13 +152,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <img src="{{ asset('assets/adminlte/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
-<<<<<<< HEAD
-                  {{ Auth::user()->nombre }}
-                  <small>Registro {{ Auth::user()->created_at }}</small>
-=======
                   {{ auth()->user()->name }}
                   <small>Desde {{ Auth::user()->created_at }}</small>
->>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
                 </p>
               </li>
               <!-- Menu Body -->

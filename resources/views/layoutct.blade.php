@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	
 	<title>@yield('meta-title', config('app.name'). "| Blog")</title>
-	<meta name="description" content="@yield('meta-description', 'Este es el blog de Quiero inspirarte, conviertete en ti')">
+	<meta name="description" content="@yield('meta-description', 'Este es el blog de Quiero Inspirarte')">
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/framework.css">
 	<link rel="stylesheet" href="/css/style.css">
@@ -30,7 +30,7 @@
 	    <div class="container">
 	      <div class="navbar-translate">
 	        <a class="navbar-brand" href="/">
-	          Blog Stocks Illustrated </a>
+	          Blog Quiero Inspirarte </a>
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 	          <span class="sr-only">Toggle navigation</span>
 	          <span class="navbar-toggler-icon"></span>

@@ -12,21 +12,20 @@
               </div>
               <div class="name">
                 <h3 class="title">Quiero Inspirarte</h3>
-                <h6>Alejandra Solvg | Fundadora</h6>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                <h6>Alejandra Solvg | Fundador</h6>
+                <a href="#" class="btn btn-just-icon btn-link btn-bank"><i class="fa fa-bank"></i></a>
+                <a href="#" class="btn btn-just-icon btn-link btn-area-chart"><i class="fa fa-area-chart"></i></a>
+                <a href="#" class="btn btn-just-icon btn-link btn-money"><i class="fa fa-money"></i></a>
               </div>
             </div>
           </div>
         </div>
         <div class="description text-center">
-          <p>Este es un sitio que proporciona diversas herramientas de auto-reflexión, motivación y autoanálisis, con la finalidad de a portar medios y estrategias para el desarrollo personal. Quiero Inspirarte busca ayudar al individuo con la búsqueda de sí mismo; desde que somos niños hasta nuestra vida adulta nos formamos a base de todas las influencias que nos rodean, nos creamos un sistema de creencias acerca de nuestra vida y de nosotros mismos, si bien siempre seremos en parte la influencia de nuestro contexto socio-cultural y de quienes nos han impactado mental y emocionalmente, es posible definir nuestra identidad y establecer nuestro crecimiento de manera individual.  </p>
-
-          <p>Quiero a través del material en este sito ayudarte a identificar los sesgos que quizá no te permiten ver con claridad quien eres, que deseas, que necesitas y a donde diriges tu vida, en un mundo tan diverso en el que todos podemos aportar a la vida de todos no necesitamos aspirar a ser igual a alguien más, mejor…Convierte en ti. </p>         
-          
+          <p>Quienes somos: Un sitio que proporciona diversas herramientas de auto-reflexión, motivación y autoanálisis, con la finalidad de a portar medios y estrategias para el desarrollo personal. Quiero Inspirarte busca ayudar al individuo con la búsqueda de sí mismo; desde que somos niños hasta nuestra vida adulta nos formamos a base de todas las influencias que nos rodean, nos creamos un sistema de creencias acerca de nuestra vida y de nosotros mismos, si bien siempre seremos en parte la influencia de nuestro contexto socio-cultural y de quienes nos han impactado mental y emocionalmente, es posible definir nuestra identidad y establecer nuestro crecimiento de manera individual. Quiero a través del material en este sito ayudarte a identificar los sesgos que quizá no te permiten ver con claridad quien eres, que deseas, que necesitas y a donde diriges tu vida, en un mundo tan diverso en el que todos podemos aportar a la vida de todos no necesitamos aspirar a ser igual a alguien más, mejor…Convierte en ti. </p>
 
         </div>
+        
+
         {{--<div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile-tabs">
@@ -95,12 +94,7 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
         </div>--}}
-        <div class="row"></div>
-=======
-        </div>
->>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
       </div>
     </div>
   </div>

@@ -2,8 +2,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="title">Stocks Illustrated.</h1>
-          <h4>Educación Financiera.</h4>
+          <h1 class="title">Quiero Inspirarte.</h1>
+          <h4>Conviertete en ti.</h4>
           <br>	          
         </div>
       </div>

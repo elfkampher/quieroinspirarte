@@ -47,19 +47,14 @@ The above copyright notice and this permission notice shall be included in all c
         </button>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">          
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
+        <ul class="navbar-nav ml-auto">                    
           <li class="nav-item">
             <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/HealthymindHealthierheart/" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
               <i class="fa fa-facebook-square"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/quiero_inspirarte_solvg" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/quiero_inspirarte_alesolv" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
               <i class="fa fa-instagram"></i>
             </a>
           </li>
