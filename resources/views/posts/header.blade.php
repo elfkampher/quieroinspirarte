@@ -1,6 +1,6 @@
 <header class="container-flex space-between">
     <div class="date">
-        <span class="c-gray-1">{{ $post->published_at->diffForHumans() }}/{{ $post->owner->name }}</span>
+        <span class="c-gray-1">{{ $post->published_at->diffForHumans() }}/{{ dd($post) }}</span>
     </div>
     <div class="post-category">
         <span class="category text-capitalize">
