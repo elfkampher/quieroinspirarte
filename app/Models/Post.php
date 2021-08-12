@@ -58,6 +58,16 @@ class Post extends Model
         ->orderBy('published_at');
     }
 
+    public function scopeAllowed($query)
+    {
+        if( auth()->user()->hasRole('Admin')){
+            return $query;
+        }else{
+            return $query->where('user_id', auth()->id());
+        }
+    }
+
+
     public static function create(array $attributes = [])
     {
         $post = static::query()->create($attributes);
@@ -107,7 +117,7 @@ class Post extends Model
     {
         $this->attributes['category_id'] = Category::find($category)
                                             ? $category
-                                            : Category::create(['name' => $catecory])->id;
+                                            : Category::create(['name' => $category])->id;
     }
 
     public function syncTags($tags)

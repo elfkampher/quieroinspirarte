@@ -1,6 +1,5 @@
 @extends('layoutct')
-@section('meta-title', $post->title)
-@section('meta-description', $post->excerpt)
+
 @include('partials.header')
 @section('content')
 
@@ -25,12 +24,12 @@
                         @endforeach
                     </div>
                 @elseif($post->iframe)
-                    @include($posts->iframe)
+                    @include('posts.iframe')
                 @endif                    
 
                 <div class="content-post">
 
-                    @include('posts.header');
+                    @include('posts.header')
                     <h1>{{ $post->title }}</h1>
                     <div class="divider"></div>
                     <p>{{ $post->excerpt }}</p>

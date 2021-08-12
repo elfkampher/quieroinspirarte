@@ -5,7 +5,6 @@
 @section('content')
 
 <div class="main main-raised">
-
     @if($post->photos->count() > 1)
       @include('posts.carousel')
     @endif
@@ -16,13 +15,11 @@
                   @if($post->photos->count() === 1)
                   <div class="profile">
                     <div class="avatar">
-                      <figure><img src="{{ $post->photos->first()->url }}" alt="" class="img-raised rounded-circle img-fluid"></figure>    
+                      <figure><img src="{{ asset($post->photos->first()->url) }}" alt="" class="img-raised rounded-circle img-fluid"></figure>    
                     </div>
                   </div>
                   @elseif($post->iframe)
-                      <div class="video">
-                          {!! $post->iframe !!}
-                      </div>
+                      @include('posts.iframe')
                   @endif
                   <div class="content-post">
                     @include('posts.header')

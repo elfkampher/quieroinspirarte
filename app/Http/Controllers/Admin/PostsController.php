@@ -14,8 +14,8 @@ use App\Http\Requests\StorePostRequest;
 class PostsController extends Controller
 {
     public function index(){
-        
-        $posts = auth()->user()->posts;
+
+        $posts = Post::allowed()->get();
 
         return view('admin.posts.index')->with(compact('posts'));
     }
@@ -50,6 +50,7 @@ class PostsController extends Controller
 
     public function update(Post $post, StorePostRequest $request)
     {
+        $this->authorize('update', $post);
         
         $post->update($request->except('tags', 'files'));
 
@@ -60,6 +61,8 @@ class PostsController extends Controller
 
     public function delete($id)
     {
+        $this->authorize('delete', $post);
+
         $post = Post::find($id);        
 
         $post->delete();
