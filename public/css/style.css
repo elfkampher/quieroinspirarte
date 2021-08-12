@@ -3,7 +3,7 @@ body{
 	font-family: 'lato', sans-serif;
 }
 .preload{
-	border:1.2px solid #1abc9c;
+	border:1.2px solid #877371;
 	width: 50%;
 }
 header nav li{
@@ -21,7 +21,7 @@ header nav li a:hover{
 }
 
 .logo img{
-	width: 150px;
+	width: 350px;
 }
 
 
@@ -34,12 +34,12 @@ header nav li a:hover{
 	position: relative;
 	padding: 65px 100px;
 }
-.post .category{
-	background: #1abc9c;
+.container .category{
+	background: #877371;
 	padding: 5px 10px;
 	color: white;
 	position: absolute;
-    right: -11px;
+    right: -5px;
     top: 30px;
     text-transform: capitalize;
 }
@@ -47,6 +47,7 @@ header nav li a:hover{
 	color: inherit;
 	font-size: inherit;
 }
+
 .post figure{
 	margin:0;
 }
@@ -66,7 +67,7 @@ header nav li a:hover{
 	font-size: 20px;
 	font-weight: bold;
 }
-.post .tag{
+.container .tag{
 	margin: 0 5px;
 }
 .post .tag a{
@@ -132,14 +133,14 @@ cite .img-cite, .cite .img-cite{
 }
 
 .footer footer{
-	background: #1abc9c;
+	background: #e8e7e2;
 	padding: 45px;
 	text-align: center;
-	color: #ffffff;
+	color: #867270;
 	
 }
 .footer footer .logo{
-	opacity: 0.4;
+	opacity: 0.3;
 }
 .footer footer p{
 	opacity: 0.4;
@@ -206,7 +207,7 @@ a.btn-bar{
     background: #f7f9fc;
     border: 0;
     width: 100%;
-    height: 35px;
+    height: 40px;
     max-width: 310px;
     padding: 7px 0 5px 15px;
     display: block;
@@ -265,7 +266,7 @@ a.btn-bar{
       }
       
       .custom-toggle .bar {
-          background-color: #1abc9c;
+          background-color: #877371;
           display: block;
           width: 20px;
           height: 2px;

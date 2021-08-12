@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>@yield('meta-title', config('app.name'). "| Blog")</title>
-	<meta name="description" content="@yield('meta-description', 'Este es el blog de Stocks Illustrated')">
+	<meta name="description" content="@yield('meta-description', 'Este es el blog de Quiero Inspirarte')">
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/framework.css">
 	<link rel="stylesheet" href="/css/style.css">

@@ -9,9 +9,23 @@ use Carbon\Carbon;
 class Post extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-
+    protected $fillable = [
+        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id' 
+    ];
+    
     protected $dates = ['published_at'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($post)
+        {
+            $post->tags()->detach();
+
+            $post->photos->each->delete();        
+        });
+    }
 
     public function getRouteKeyName()
     {
@@ -39,11 +53,46 @@ class Post extends Model
         ->where('published_at','<=', Carbon::now())
         ->orderBy('published_at');
     }
-    public function setTitleAttribute($title)
+
+    public static function create(array $attributes = [])
+    {
+        $post = static::query()->create($attributes);
+
+        $post->generateUrl();
+
+        return $post;
+    }
+
+    public function generateUrl()
+    {
+        $url = str_slug($this->title);
+
+        if($this::where('url', $url)->exists())
+        {
+            $url = "{$url}-{$this->id}";
+        }
+
+        $this->url = $url;
+
+        $this->save();
+    }
+
+    /*public function setTitleAttribute($title)
     {
         $this->attributes['title'] = $title;
-        $this->attributes['url'] = str_slug($title);
-    }
+
+        $url = str_slug($title);
+
+        $duplicateUrlCount = Post::where('url', 'LIKE', "{$url}%")->count();
+
+        if($duplicateUrlCount>0)
+        {
+            $url .= "-" . ++$duplicateUrlCount;
+        }
+
+        $this->attributes['url'] = $url;
+    }*/
+    
 
     public function setPublishedAtAttribute($published_at)
     {
@@ -55,5 +104,15 @@ class Post extends Model
         $this->attributes['category_id'] = Category::find($category)
                                             ? $category
                                             : Category::create(['name' => $catecory])->id;
+    }
+
+    public function syncTags($tags)
+    {
+        $tagIds = collect($tags)->map(function($tag){
+            return Tag::find($tag) ? $tag : Tag::create(['name' => $tag])->id;
+        });
+
+        
+        return $this->tags()->sync($tagIds);
     }
 }

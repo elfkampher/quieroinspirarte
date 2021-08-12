@@ -14,14 +14,12 @@ class PhotosController extends Controller
     {
         $this->validate(request(), [
             'photo' => 'required|image|max:2048|'
-        ]);
+        ]);        
 
-        $photo = request()->file('photo')->store('public');
 
-        $photoUrl = Storage::url($photo);
 
         Photo::create([
-            'url' => Storage::url($photo),
+            'url' => Storage::url(request()->file('photo')->store('posts','public')),
             'post_id' => $post->id
         ]);    
 
@@ -31,8 +29,7 @@ class PhotosController extends Controller
     {
         if($request->ajax()){ 
             $photo = Photo::find($request->id);            
-            $photoPath = str_replace('storage', 'public', $photo->url);
-            Storage::delete($photoPath);
+            
             $photo->delete();
         }
 

@@ -17,8 +17,14 @@ class UsersTableSeeder extends Seeder
         User::truncate();
 
         $user = new User;
-        $user->name = 'admin';
-        $user->email = 'jgutierrez@stocksillustrated.com.mx';
+        $user->name = 'Alejandra Vasquez';
+        $user->email = 'avasquez@quieroinspirarte.com';
+        $user->password = bcrypt('AlphaJuliet2018?*');
+        $user->save();
+
+        $user = new User;
+        $user->name = 'Juan Gutierrez';
+        $user->email = 'jgutierrez@quieroinspirarte.com';
         $user->password = bcrypt('AlphaJuliet2018?*');
         $user->save();
 
