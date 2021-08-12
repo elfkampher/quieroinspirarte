@@ -12,10 +12,10 @@
             <i class="material-icons">mail</i> Contacto
           </a>
           <a href="{{ route('pages.about') }}" class="dropdown-item">
-            <i class="material-icons">mail</i> Nosotros
+            <i class="material-icons">info</i> Nosotros
           </a>
           <a href="{{ route('pages.archive') }}" class="dropdown-item">
-            <i class="material-icons">mail</i> Archivo
+            <i class="material-icons">description</i> Archivo
           </a>
           <a href="/login" class="dropdown-item">
             <i class="material-icons">dashboard</i> Administración

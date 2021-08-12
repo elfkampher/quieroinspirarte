@@ -13,6 +13,6 @@ class CategoriesController extends Controller
         $posts = $category->posts()->paginate();
         $title = "Publicaciones de la categoria ".$category->name;
 
-        return view('welcome')->with(compact('posts'))->with(compact('title'));
+        return view('pages.home')->with(compact('posts'))->with(compact('title'));
     }
 }

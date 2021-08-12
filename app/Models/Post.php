@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id' 
+        'title', 'body', 'iframe', 'excerpt', 'published_at', 'category_id', 'user_id' 
     ];
     
     protected $dates = ['published_at'];
@@ -47,6 +47,13 @@ class Post extends Model
         return $this->hasMany(Photo::class);
     }
 
+<<<<<<< HEAD
+=======
+    public function owner(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+>>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
     public function scopePublished($query)
     {
         $query->whereNotNull('published_at')
@@ -54,6 +61,19 @@ class Post extends Model
         ->orderBy('published_at');
     }
 
+<<<<<<< HEAD
+=======
+    public function scopeAllowed($query)
+    {
+        if( auth()->user()->hasRole('Admin')){
+            return $query;
+        }else{
+            return $query->where('user_id', auth()->id());
+        }
+    }
+
+
+>>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
     public static function create(array $attributes = [])
     {
         $post = static::query()->create($attributes);
@@ -103,7 +123,11 @@ class Post extends Model
     {
         $this->attributes['category_id'] = Category::find($category)
                                             ? $category
+<<<<<<< HEAD
                                             : Category::create(['name' => $catecory])->id;
+=======
+                                            : Category::create(['name' => $category])->id;
+>>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
     }
 
     public function syncTags($tags)
@@ -115,4 +139,19 @@ class Post extends Model
         
         return $this->tags()->sync($tagIds);
     }
+<<<<<<< HEAD
+=======
+
+    public function isPublished()
+    {
+        /*$dt = Carbon::now()->toDateString();
+        $postdate = Carbon::parse($this->published_at)->format('Y-m-d');
+        
+        if($dt > $postdate){
+            return true;
+        }*/
+        return ! is_null($this->published_at) && $this->published_at < today();
+
+    }
+>>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
 }

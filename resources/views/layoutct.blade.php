@@ -24,12 +24,13 @@
 	<link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
 	@stack('styles')
 </head>
-<body class="profile-page sidebar-collapse">
+<body class="profile-page sidebar-collapse">	
 	<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+		<a href="https://www.buymeacoffee.com/encodyne"><img src="https://img.buymeacoffee.com/button-api/?text=Compranos un cafecito&emoji=&slug=encodyne&button_colour=5368d0&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" style="float:left;"></a>
 	    <div class="container">
 	      <div class="navbar-translate">
 	        <a class="navbar-brand" href="/">
-	          Blog Quiero Inspirarte </a>
+	          Blog Stocks Illustrated </a>
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 	          <span class="sr-only">Toggle navigation</span>
 	          <span class="navbar-toggler-icon"></span>
@@ -40,58 +41,16 @@
 
 	      @include('partials.nav')
 	      
+
+	      
 	    </div>
 	  </nav>
-	  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/profile_city.jpg')">
-	    <div class="container">
-	      <div class="row">
-	        <div class="col-md-6">
-	          <h1 class="title">Quiero Inspirarte.</h1>
-	          <h4>Conviertete en ti.</h4>
-	          <br>	          
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+
+	  
 	<!-- Contenido -->
 	@yield('content')
 	<!-- Contenido -->
-	<section class="footer">
-		<footer class="footer footer-default">
-    <div class="container">
-      <nav class="float-left">
-        <ul>
-          <li>
-            <a href="/contacto">
-              Contacto
-            </a>
-          </li>
-          <li>
-            <a href="/acerca-de">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, Hecho con <i class="material-icons">favorite</i> Por
-        <a href="https://www.encodyne.com.mx/" target="_blank">Encodyne</a> cybertechnology.
-      </div>
-    </div>
-  </footer>
+	@include('partials.footer')
 	</section>
 	@stack('scripts')
 	<script src="{{ asset('assets/js/core/jquery.min.js') }}" type="text/javascript"></script>

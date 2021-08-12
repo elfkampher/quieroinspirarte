@@ -13,6 +13,6 @@ class TagsController extends Controller
         $posts = $tag->posts()->paginate();
         $title = "Publicaciones de la etiqueta ".$tag->name;
 
-        return view('welcome')->with(compact('posts'))->with(compact('title'));
+        return view('pages.home')->with(compact('posts'))->with(compact('title'));
     }
 }

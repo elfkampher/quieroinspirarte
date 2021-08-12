@@ -18,6 +18,18 @@ Route::get('about', 'PagesController@about')->name('pages.about');
 Route::get('archive', 'PagesController@archive')->name('pages.archive');
 Route::get('contact', 'PagesController@contact')->name('pages.contact');
 
+Route::get('storage-link', function(){
+    
+    if(file_exists(public_path('storage'))){
+        return 'The "public/storage" directory already exists';
+    }
+
+    app('files')->link(
+        storage_path('app/public'), public_path('storage')
+    );
+
+   return 'The [public/storage] directory has been linked.';
+});
 
 Route::get('blog/{post}', 'PostsController@show')->name('posts.show');
 Route::get('categorias/{category}', 'CategoriesController@show')->name('categories.show');

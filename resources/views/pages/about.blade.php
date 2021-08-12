@@ -1,5 +1,5 @@
 @extends('layoutct')
-
+@include('partials.header')
 @section('content')
 <div class="main main-raised">
     <div class="profile-content">
@@ -95,8 +95,12 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>--}}
         <div class="row"></div>
+=======
+        </div>
+>>>>>>> 144896d792cddab709bd227e7990ae41b05a814f
       </div>
     </div>
   </div>
