@@ -132,12 +132,7 @@ class Post extends Model
 
     public function isPublished()
     {
-        /*$dt = Carbon::now()->toDateString();
-        $postdate = Carbon::parse($this->published_at)->format('Y-m-d');
         
-        if($dt > $postdate){
-            return true;
-        }*/
         return ! is_null($this->published_at) && $this->published_at < today();
 
     }

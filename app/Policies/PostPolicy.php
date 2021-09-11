@@ -18,7 +18,7 @@ class PostPolicy
      */
     public function before($user)
     {
-        if($user->hasRole('admin'))
+        if($user->hasRole('Admin'))
         {
             return true;   
         }

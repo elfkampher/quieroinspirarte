@@ -26,7 +26,7 @@
 </head>
 <body class="profile-page sidebar-collapse">	
 	<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-		<a href="https://www.buymeacoffee.com/encodyne"><img src="https://img.buymeacoffee.com/button-api/?text=Compranos un cafecito&emoji=&slug=encodyne&button_colour=5368d0&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" style="float:left;"></a>
+		<a href="https://www.buymeacoffee.com/AleSolvg"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=AleSolvg&button_colour=BD5FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a>
 	    <div class="container">
 	      <div class="navbar-translate">
 	        <a class="navbar-brand" href="/">
